@@ -59,9 +59,10 @@ class Books extends Component {
         <Row>
           <Col size="md-6">
             <Jumbotron>
-              <h1>What Books Should I Read?</h1>
+              <h1>this is part one of the Jumbotron</h1>
             </Jumbotron>
             <form>
+              <h1>this is the form</h1>
               <Input
                 value={this.state.title}
                 onChange={this.handleInputChange}
@@ -84,13 +85,13 @@ class Books extends Component {
                 disabled={!(this.state.author && this.state.title)}
                 onClick={this.handleFormSubmit}
               >
-                Submit Book
+                HERE IS BTN
               </FormBtn>
             </form>
           </Col>
           <Col size="md-6 sm-12">
             <Jumbotron>
-              <h1>Books On My List</h1>
+              <h1>this is part two of the Jumbotron</h1>
             </Jumbotron>
             {this.state.books.length ? (
               <List>
@@ -106,7 +107,7 @@ class Books extends Component {
                 ))}
               </List>
             ) : (
-              <h3>No Results to Display</h3>
+              <h3>this is where the results would have showed</h3>
             )}
           </Col>
         </Row>
