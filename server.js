@@ -1,11 +1,12 @@
 require("dotenv").config();
 const express = require("express");
 const session = require("express-session");
-const passport = require("./client/config/passport");
+const passport = require("./config/passport");
 var db = require("./models");
 
-var app = express();
 var PORT = process.env.PORT || 3000;
+var app = express();
+
 
 // Define middleware here
 app.use(express.urlencoded({ extended: false }));
