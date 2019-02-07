@@ -3,7 +3,9 @@ import { Formik } from "formik";
 import withStyles from "@material-ui/core/styles/withStyles";
 import { Form } from "./form";
 import Paper from "@material-ui/core/Paper";
+import { Col, Row, Container } from "../Grid";
 import * as Yup from "yup";
+import "./style.css";
 
 const styles = theme => ({
   paper: {
@@ -44,15 +46,20 @@ class InputForm extends Component {
     const values = {name: "", email: "", confirmPassword: "", password: "" };
     return (
       <React.Fragment>
-        <div className={classes.container}>
-          <Paper elevation={1} className={classes.paper}>
-            <h1>Sign Up </h1>
-            <Formik
-              render={props => <Form{...props} />}
-              initialValues={values}
-              validationSchema={validationSchema}
-              />
-          </Paper>
+        <div className="container-fluid">
+          <Col size="sm-12 md-6"> 
+          
+            <div className={classes.container}>
+              <Paper elevation={1} className={classes.paper}>
+                <h1>Sign Up </h1>
+                <Formik
+                  render={props => <Form{...props} />}
+                  initialValues={values}
+                  validationSchema={validationSchema}
+                  />
+              </Paper>
+            </div>
+          </Col>
         </div>
       </React.Fragment>
           
