@@ -70,15 +70,16 @@ export const Form = props => {
           onChange={change.bind(null, "confirmPassword")}
    
         />
-        <Button
-          type="submit"
-          fullWidth
-          variant="raised"
-          color="primary"
-          disabled={!isValid}
-        >
-          Submit
-        </Button>
-      </form>
-   );
-   }
+
+     <Button
+       type="submit"
+       fullWidth
+       variant="raised"
+       color="primary"
+       disabled={!isValid}
+     >
+       Submit
+     </Button>
+   </form>
+ );
+};

@@ -1,5 +1,8 @@
-.navbar {
+#nav {
     font-family: 'Cabin', sans-serif;
     font-family: 'Caveat', cursive;
+    border-bottom-color: teal;
+    background-color: red;
+    
 }
 

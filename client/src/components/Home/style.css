@@ -1,18 +1,13 @@
-.about-container {
-    padding: 20px;
-    margin: 20px;
+.description-div{
+    width: 45%;
+    float: left;
+    margin-top: 60px;
+    margin-left: 60px;
     font-family: 'Cabin', sans-serif;
     font-family: 'Caveat', cursive;
 
     
 }
-
-.sign-up-container {
-    font-family: 'Cabin', sans-serif;
-    font-family: 'Caveat', cursive;
-
-}
-
 
 h1 {
     text-shadow: 2px 2px 5px teal;
@@ -21,5 +16,16 @@ h1 {
 
 
 body {
-    background-color: antiquewhite;
+    background-color: whitesmoke;
+}
+
+
+
+.SignUpDiv {
+    width: 500px;
+    float: right;
+    margin-right: 60px;
+    margin-top: 100px;
+    font-family: 'Cabin', sans-serif;
+    font-family: 'Caveat', cursive;
 }

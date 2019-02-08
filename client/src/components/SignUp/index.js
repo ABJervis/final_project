@@ -3,7 +3,6 @@ import { Formik } from "formik";
 import withStyles from "@material-ui/core/styles/withStyles";
 import { Form } from "./form";
 import Paper from "@material-ui/core/Paper";
-import { Col, Row, Container } from "../Grid";
 import * as Yup from "yup";
 import "./style.css";
 
@@ -13,8 +12,8 @@ const styles = theme => ({
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    padding: `${theme.spacing.unit * 5}px ${theme.spacing.unit * 5}px ${theme
-      .spacing.unit * 5}px`
+    /*padding: `${theme.spacing.unit * 5}px ${theme.spacing.unit * 5}px ${theme
+      .spacing.unit * 5}px`*/
   },
   container: {
     maxWidth: "200px"
@@ -45,10 +44,7 @@ class InputForm extends Component {
     const classes = this.props;
     const values = {name: "", email: "", confirmPassword: "", password: "" };
     return (
-      <React.Fragment>
-        <div className="container-fluid">
-          <Col size="sm-12 md-6"> 
-          
+      <React.Fragment>          
             <div className={classes.container}>
               <Paper elevation={1} className={classes.paper}>
                 <h1>Sign Up </h1>
@@ -59,18 +55,13 @@ class InputForm extends Component {
                   />
               </Paper>
             </div>
-          </Col>
-        </div>
       </React.Fragment>
-          
+
+      
     );
   }
 }
 
 export default withStyles(styles)(InputForm);
-
-
-
-
 
 

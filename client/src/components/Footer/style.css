@@ -1,8 +1,16 @@
 #footer {
-    background-color: black;
+    
+        clear: both;
+        max-width: 100%;
+        font-size: 12px;
+        color: teal;
+        color: #ccc;
+        text-align: center;
+        background: black;
+        border-top: 8px solid #4aaaa5;
+        height: 60px;
+       
+
     
 }
 
-a{
-    text-align: right;
-}
