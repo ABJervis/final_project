@@ -1,5 +1,7 @@
 import React from "react";
 import SelectButtons from "../SelectButtons";
+import SelectKid from "../SelectKid";
+import AddKid from "../AddKid";
 
 const styles = theme => ({
   button: {
@@ -19,12 +21,21 @@ function Welcome () {
         <h3>Hello There!</h3>
         <br />
         Let's get going. Using the buttons below you can either select an existing child's profile or create a new profile for an additional child.
-      </div>
-    
+      </div>    
+      <br />
+      <br />  
       <div className="SelectDiv">
-      <SelectButtons />
+      <SelectKid />
       </div>
+      <br />
+      <br />
+      <div className="AddDiv">
+      <AddKid />
+      </div>
+
     </div>
+
+
     
 
   );
