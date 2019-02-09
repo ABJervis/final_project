@@ -21,8 +21,8 @@ const styles = theme => ({
 });
 
 const validationSchema = Yup.object({
-  name: Yup.string("Enter a name")
-  .required("Name is required"),
+  username: Yup.string("Enter a UserName")
+  .required("UserName is required"),
   email: Yup.string("Enter your email")
     .email("Enter a valid email")
     .required("Email is required"),
@@ -42,7 +42,7 @@ class InputForm extends Component {
 
   render() {
     const classes = this.props;
-    const values = {name: "", email: "", confirmPassword: "", password: "" };
+    const values = {username: "", email: "", confirmPassword: "", password: "" };
     return (
       <React.Fragment>          
             <div className={classes.container}>

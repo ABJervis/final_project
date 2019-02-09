@@ -2,6 +2,7 @@ import React from "react";
 import SelectButtons from "../SelectButtons";
 import SelectKid from "../SelectKid";
 import AddKid from "../AddKid";
+import Button from '@material-ui/core/Button';
 
 const styles = theme => ({
   button: {
@@ -12,7 +13,13 @@ const styles = theme => ({
   },
 });
 
-function Welcome () {
+
+function Welcome() {
+  function handleClick(e) {
+    e.preventDefault();
+    console.log('The link was clicked.');
+  }
+
   return (
 
     <div className="container-fluid">
@@ -23,17 +30,12 @@ function Welcome () {
         Let's get going. Using the buttons below you can either select an existing child's profile or create a new profile for an additional child.
       </div>    
       <br />
-      <br />  
-      <div className="SelectDiv">
       <SelectKid />
-      </div>
       <br />
-      <br />
-      <div className="AddDiv">
       <AddKid />
-      </div>
-
     </div>
+
+
 
 
     

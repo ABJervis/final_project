@@ -5,7 +5,7 @@ import "./style.css";
 
 export const Form = props => {
     const {
-      values: { name, email, password, confirmPassword },
+      values: { username, email, password, confirmPassword },
       errors,
       touched,
       handleChange,
@@ -25,13 +25,13 @@ export const Form = props => {
         }}
       >
         <TextField
-          id="name"
-          name="name"
-          helperText={touched.name ? errors.name : ""}
-          error={touched.name && Boolean(errors.name)}
-          label="Name"
-          value={name}
-          onChange={change.bind(null, "name")}
+          id="username"
+          name="username"
+          helperText={touched.username ? errors.username : ""}
+          error={touched.name && Boolean(errors.username)}
+          label="UserName"
+          value={username}
+          onChange={change.bind(null, "username")}
           fullWidth
    
         />

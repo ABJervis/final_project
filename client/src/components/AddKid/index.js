@@ -53,7 +53,7 @@ class AddKid extends Component {
                     <label for="allergies-input">Allergies</label>
                     <input className="form-control" id="allergies-input" placeholder="" type="text"></input>
                     </div>
-                    <Button className="btn btn-primary" id="add-train-btn">Submit</Button> 
+                    <Button variant="contained" color="primary">Submit</Button>  
                     </div>
          
                 }
