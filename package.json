@@ -13,10 +13,6 @@
     "build": "cd client && npm run build",
     "heroku-postbuild": "npm run build"
   },
-  "proxy": "http://localhost:3001",
-  "eslintConfig": {
-    "extends": "react-app"
-  },
   "author": "",
   "license": "ISC",
   "devDependencies": {
@@ -29,14 +25,8 @@
     "express": "^4.16.4",
     "express-session": "^1.15.6",
     "if-env": "^1.0.4",
-    "inquirer": "^6.2.2",
     "mongoose": "^5.3.16",
-    "mysql": "^2.16.0",
-    "mysql2": "^1.6.4",
-    "passport": "^0.4.0",
-    "passport-local": "^1.0.0",
-    "react-materialize": "^2.6.0",
-    "sequelize": "^4.42.0"
+    "react-materialize": "^2.6.0"   
   },
   "repository": {
     "type": "git",

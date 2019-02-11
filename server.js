@@ -1,47 +1,23 @@
-require("dotenv").config();
-var express = require("express");
-var session = require("express-session");
-var passport = require("./config/passport");
-var db = require("./models");
+const express = require("express");
+const mongoose = require("mongoose");
+const routes = require("./routes");
+const app = express();
+const PORT = process.env.PORT || 3001;
 
-var app = express();
-var PORT = process.env.PORT || 3000;
-
-// Middleware
-app.use(express.urlencoded({ extended: false }));
+// Define middleware here
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(express.static("public"));
-// We need to use sessions to keep track of our user's login status
-app.use(
-  session({ secret: "keyboard cat", resave: true, saveUninitialized: true })
-);
-
-app.use(passport.initialize());
-app.use(passport.session());
-
-/* Add routes, both API and view
-app.use(routes);*/
-
-var syncOptions = { force: false };
-
-// If running a test, set syncOptions.force to true
-// clear the testdb
-
-if(process.env.NODE_ENV ==="test") {
-  syncOptions.force = true;
+// Serve up static assets (usually on heroku)
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
 }
+// Add routes, both API and view
+app.use(routes);
 
+// Connect to the Mongo DB
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/pediatrictracker");
 
-
-// Start the server
-db.sequelize.sync(syncOptions).then(function(){
-  app.listen(PORT, function(){
-    console.log(
-      "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
-      PORT,
-      PORT
-    );
-  });
+// Start the API server
+app.listen(PORT, function() {
+  console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
 });
-
-module.exports = app;
