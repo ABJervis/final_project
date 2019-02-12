@@ -11,7 +11,9 @@ router
 
 // Matches with "/api/kids"
 router.route("/")
-  .get(kidsController.findAll)
+  .get(kidsController.findAll);
+
+router.route("/addkid")
   .post(kidsController.create);
 
 
