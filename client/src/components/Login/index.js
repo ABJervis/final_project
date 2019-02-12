@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import Footer from "../Footer";
 import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
@@ -14,38 +14,79 @@ const styles = theme => ({
   });
 
 
+class Login extends Component {
+//set the initial state
+    state = {
+        userName: "",
+        password: ""
+    };
 
-function Login() {
-    return (
+    handleInputChange = event => {
+    
+    let value = event.target.value;
+    const name = event.target.name;
+    
+    if (name === "password") {
+        value = value.substring(0, 10);
+    }
+    //update the state
+    this.setState({
+        [name]: value
+    });
+    };
+
+    handleFormSubmit = event => {
+        event.preventDefault();
+        if (!this.state.userName || !this.state.password) {
+            alert("Please enter username & password");
+        }
+        else if (this.state.userName === "ashley" && this.state.passwork === "456") {
+            alert("Welcome Back!");
+            window.location = "/kids"
+        } else {
+            alert ("Your username or password was incorrect. Please try again.")
+        }
+
+        this.setState({
+            userName: "",
+            password: ""
+        });
+    };
+
+    render() {
+        return(
         <div className="container-login">
-            <div className="login-header">
-                <h1>Welcome Back</h1> <br /><br />
-            </div>
-             <div className="whole-form">
-                <div className="form-group">
-                    <div className="row">
-                        <div className="col-sm-4">
-                        <label for="exampleInputEmail1">Email address</label>
-                         <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email: example_name@email.com" />
-                        </div>
-                        <div className="col-sm-4">
-                        <label for="exampleInputPassword1">Password</label>
-                            <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Type Your Password" />
-                        </div>
-                        <div className="col-sm-4">
-                        <Button variant="contained" color="primary">Submit</Button> 
-                        </div>
-                    </div>
-                </div>
-               
+        <p>
+            Please enter your username and password.
+        </p>
+        <form className="form">
+          <input id="username"
+            value={this.state.userName}
+            name="userName"
+            onChange={this.handleInputChange}
+            type="text"
+            placeholder="Username"
+            />
+            <input id="password"
+            value={this.state.password}
+            name="password"
+            onChange={this.handleInputChange}  
+            type="password"
+            placeholder="Password"
+            />
 
+            <Button variant="contained" color="primary" onClick={this.handleFormSubmit}>
+            Submit
+            </Button>
+        </form>
         
-        
-            </div>
-            <Footer />
+        <Footer />
 
         </div>
-    )
-  }
+    );
+    };
+}
 
-  export default withStyles(styles) (Login);
+export default withStyles(styles)(Login);
+
+
