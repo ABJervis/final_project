@@ -1,7 +1,6 @@
 //need the form to return the last recorded stats for the kid, then provide form to add new details about the appt
 
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 

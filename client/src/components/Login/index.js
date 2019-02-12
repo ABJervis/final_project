@@ -26,11 +26,11 @@ function Login() {
                     <div className="row">
                         <div className="col-sm-4">
                         <label for="exampleInputEmail1">Email address</label>
-                         <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email: example_name@email.com" />
+                         <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email: example_name@email.com" />
                         </div>
                         <div className="col-sm-4">
                         <label for="exampleInputPassword1">Password</label>
-                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Type Your Password" />
+                            <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Type Your Password" />
                         </div>
                         <div className="col-sm-4">
                         <Button variant="contained" color="primary">Submit</Button> 

@@ -1,15 +1,14 @@
 //need the form to return the last recorded stats for the kid, then provide form to add new details about the appt
 
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
-import DeleteBtn from "../DeleteBtn";
-import API from "../../utils/API";
+import DeleteBtn from "../components/DeleteBtn";
+import API from "../utils/API";
 import { Link } from "react-router-dom";
-import { List, ListItem } from "../List";
-import { Input, TextArea, FormBtn } from "../Form";
-import { Col, Row, Container } from "../Grid";
+import { List, ListItem } from "../components/List";
+import { Input, TextArea } from "../components/Form";
+import { Col, Row, Container } from "../components/Grid";
 
 
 const styles = theme => ({
@@ -23,10 +22,11 @@ const styles = theme => ({
 
 
 
-class AddKid extends Component {
+class Kids extends Component {
   state = {
     test: false,
-    child_name: [],
+    kids: [],
+    child_name: "",
     age: "",
     height: "",
     weight: "",
@@ -40,7 +40,7 @@ class AddKid extends Component {
   loadKids = () => {
     API.getKids()
       .then(res =>
-        this.setState({ child_name: res.data, age: "", height: "", weight: "", allergies: ""})
+        this.setState({ kids: res.data, child_name: "", age: "", height: "", weight: "", allergies: ""})
       )
       .catch(err => console.log(err));
   };
@@ -54,7 +54,7 @@ class AddKid extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-    if (this.state.child_name && this.state.age) {
+    if (this.state.kids && this.state.child_name) {
       API.saveKid({
         child_name: this.state.child_name,
         age: this.state.age,
@@ -73,14 +73,14 @@ class AddKid extends Component {
         <Row>
           <Col size="md-6">
             <div className= "title-container">
-              <h1>Select Child</h1>
+              <h1>Add Child</h1>
             </div>
             <form>
               <Input
                 value={this.state.child_name}
                 onChange={this.handleInputChange}
                 name="child_name"
-                placeholder="Child's Name(required)"
+                placeholder="Child's Name (required)"
               />
               <Input
                 value={this.state.age}
@@ -88,17 +88,17 @@ class AddKid extends Component {
                 name="age"
                 placeholder="Age (required)"
               />
-              <TextArea
+              <Input
                 value={this.state.height}
                 onChange={this.handleInputChange}
                 name="height"
-                placeholder="Height (required)"
+                placeholder="Height (optional)"
               />
-               <TextArea
+               <Input
                 value={this.state.weight}
                 onChange={this.handleInputChange}
                 name="weight"
-                placeholder="Weight (required)"
+                placeholder="Weight (optional)"
               />
                <TextArea
                 value={this.state.allergies}
@@ -106,23 +106,19 @@ class AddKid extends Component {
                 name="allergies"
                 placeholder="Allergies (optional)"
               />
-              <FormBtn
-                disabled={!(this.state.age && this.state.child_name)}
-                onClick={this.handleFormSubmit}
-              >
-                Submit Child
-              </FormBtn>
+              <Button variant="contained" color="primary" onClick={this.handleFormSubmit}>Submit Child</Button>
+
             </form>
           </Col>
           <Col size="md-6 sm-12">
             <div className="result-container">
               <h1>Children</h1>
             </div>
-            {this.state.child_name.length ? (
+            {this.state.kids.length ? (
               <List>
-                {this.state.child_name.map(kid => (
+                {this.state.kids.map(kid => (
                   <ListItem key={kid._id}>
-                    <Link to={"/selectkid" + kid._id}>
+                    <Link to={"/kids/" + kid._id}>
                       <strong>
                         {kid.child_name}, {kid.age}
                       </strong>
@@ -142,4 +138,4 @@ class AddKid extends Component {
   }
 }
 
-export default withStyles(styles)(AddKid);
+export default withStyles(styles)(Kids);

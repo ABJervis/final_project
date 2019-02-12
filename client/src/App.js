@@ -1,11 +1,10 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Nav from "./components/Nav";
-import Home from "./components/Home";
+import Home from "./pages/Home";
 import Login from "./components/Login";
-import SelectKid from "./components/SelectKid";
-import AddKid from "./components/AddKid";
-import Welcome from "./components/Welcome";
+import Kids from "./pages/Kids";
+
 
 function App() {
   return (
@@ -16,9 +15,8 @@ function App() {
           <Route exact path="/" component={Home} />
           <Route exact path="/home" component={Home} />
           <Route exact path="/login" component={Login} />         
-          <Route exact path="/addkid" component={AddKid} />
-          <Route exact path="/selectkid" component={SelectKid} />
-          <Route exact path="/welcome" component={Welcome} />
+          <Route exact path="/kids" component={Kids} />
+     
         </Switch>
       </div>
     </Router>

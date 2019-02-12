@@ -10,10 +10,10 @@ router
 
 
 // Matches with "/api/kids"
-router.route("/")
+router.route("/kids")
   .get(kidsController.findAll);
 
-router.route("/addkid")
+router.route("/kids")
   .post(kidsController.create);
 
 

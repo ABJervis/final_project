@@ -11,6 +11,6 @@ export default {
   },
   // Saves a kid to the database
   saveKid: function(kidData) {
-    return axios.post("/api/kids", kidData);
+    return axios.post("/api/kids/", kidData);
   }
 };

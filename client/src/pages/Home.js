@@ -1,6 +1,6 @@
 import React from "react";
-import SignUp from "../SignUp";
-import Footer from "../Footer";
+import SignUp from "../components/SignUp";
+import Footer from "../components/Footer";
 import "./style.css";
 
 
