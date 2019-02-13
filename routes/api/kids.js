@@ -10,7 +10,7 @@ router
 
 
 // Matches with "/api/kids"
-router.route("/kids")
+router.route("/")
   .get(kidsController.findAll);
 
 router.route("/kids")

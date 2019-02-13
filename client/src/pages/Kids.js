@@ -3,12 +3,12 @@
 import React, { Component } from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
-import DeleteBtn from "../components/DeleteBtn";
 import API from "../utils/API";
 import { Link } from "react-router-dom";
 import { List, ListItem } from "../components/List";
 import { Input, TextArea } from "../components/Form";
 import { Col, Row, Container } from "../components/Grid";
+import Footer from "../components/Footer";
 
 
 const styles = theme => ({
@@ -19,7 +19,6 @@ const styles = theme => ({
       display: 'none',
     },
   });
-
 
 
 class Kids extends Component {
@@ -118,12 +117,12 @@ class Kids extends Component {
               <List>
                 {this.state.kids.map(kid => (
                   <ListItem key={kid._id}>
-                    <Link to={"/kids/" + kid._id}>
+                    <Link to={"/kids" + kid._id}>
                       <strong>
-                        {kid.child_name}, {kid.age}
+                        
                       </strong>
                     </Link>
-                    <DeleteBtn onClick={() => this.deleteKid(kid._id)} />
+               
                   </ListItem>
 
                 ))}
@@ -133,9 +132,15 @@ class Kids extends Component {
             )}
           </Col>
         </Row>
+        <Footer />
       </Container>
     );
+    
   }
+
+  
+  
+  
 }
 
 export default withStyles(styles)(Kids);

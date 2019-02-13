@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import axios from "axios";
 import Footer from "../Footer";
 import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
@@ -37,20 +38,36 @@ class Login extends Component {
 
     handleFormSubmit = event => {
         event.preventDefault();
+
+    const welcome = () => {
+        alert("Welcome Back");
+        window.location = "/kids"
+    }    
+    
+        const {userName, password} = this.state
+        console.log(userName, password)
+
         if (!this.state.userName || !this.state.password) {
             alert("Please enter username & password");
         }
-        else if (this.state.userName === "ashley" && this.state.passwork === "456") {
-            alert("Welcome Back!");
-            window.location = "/kids"
-        } else {
-            alert ("Your username or password was incorrect. Please try again.")
-        }
+        else {
+            axios.post("api/users", {
+                userName: this.state.userName,
+                password: this.state.password
+            }).then(function (response) {
+                console.log(response);
 
-        this.setState({
-            userName: "",
-            password: ""
-        });
+                welcome();
+
+                this.setState({
+                    userName: "",
+                    password: ""
+                })
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+        }
     };
 
     render() {

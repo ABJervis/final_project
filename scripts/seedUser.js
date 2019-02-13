@@ -8,30 +8,17 @@ mongoose.connect(
   "mongodb://localhost/kidsdb"
 );
 
-const kidsSeed = [
+const userSeed = [
   {
-    name: "Finley",
-    age: "1",
-    height: "32",
-    weight: "24",
-    allergies: "None",
-    Notes:"well check",
-    date: new Date(Date.now())
+    userName: "Ashley",
+    password: 1234
   }, 
-  {
-    name: "Aislinn",
-    age: "5",
-    height: "42",
-    weight: "40",
-    allergies: "Amoxicillin",
-    Notes:"well check",
-    date: new Date(Date.now())
-  }
+ 
 ];
 
 db.Kids
   .remove({})
-  .then(() => db.Kid.collection.insertMany(kidsSeed))
+  .then(() => db.User.collection.insertMany(userSeed))
   .then(data => {
     console.log(data.result.n + " records inserted!");
     process.exit(0);

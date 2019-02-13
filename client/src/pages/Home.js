@@ -6,7 +6,7 @@ import "./style.css";
 
 function Home() {
   return (
-    <div class="container-fluid">      
+    <div className="container-fluid">      
         
           <div className="description-div">
             
