@@ -4,8 +4,6 @@ import React, { Component } from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import API from "../utils/API";
-import { Link } from "react-router-dom";
-import { List, ListItem } from "../components/List";
 import { Input, TextArea } from "../components/Form";
 import { Col, Row, Container } from "../components/Grid";
 import Footer from "../components/Footer";
@@ -32,17 +30,17 @@ class Kids extends Component {
     allergies: "",
   }
 
-  componentDidMount() {
-    this.loadKids();
-  }
+  //componentDidMount() {
+    //this.loadKids();
+ // }
 
-  loadKids = () => {
-    API.getKids()
-      .then(res =>
-        this.setState({ kids: res.data, child_name: "", age: "", height: "", weight: "", allergies: ""})
-      )
-      .catch(err => console.log(err));
-  };
+ // loadKids = () => {
+   // API.getKid()
+     // .then(res =>
+       // this.setState({ kids: res.data, child_name: "", age: "", height: "", weight: "", allergies: ""})
+     // )
+      //.catch(err => console.log(err));
+  //};
 
   handleInputChange = event => {
     const { name, value } = event.target;
@@ -61,8 +59,6 @@ class Kids extends Component {
         weight: this.state.weight,
         allergies: this.state.allergies
       })
-        .then(res => this.loadKids())
-        .catch(err => console.log(err));
     }
   };
 
@@ -113,23 +109,6 @@ class Kids extends Component {
             <div className="result-container">
               <h1>Children</h1>
             </div>
-            {this.state.kids.length ? (
-              <List>
-                {this.state.kids.map(kid => (
-                  <ListItem key={kid._id}>
-                    <Link to={"/kids" + kid._id}>
-                      <strong>
-                        
-                      </strong>
-                    </Link>
-               
-                  </ListItem>
-
-                ))}
-              </List>
-            ) : (
-              <h3>Huh?</h3>
-            )}
           </Col>
         </Row>
         <Footer />
@@ -137,9 +116,6 @@ class Kids extends Component {
     );
     
   }
-
-  
-  
   
 }
 

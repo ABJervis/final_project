@@ -18,7 +18,7 @@ const styles = theme => ({
 class Login extends Component {
 //set the initial state
     state = {
-        userName: "",
+        emailAdd: "",
         password: ""
     };
 
@@ -44,23 +44,27 @@ class Login extends Component {
         window.location = "/kids"
     }    
     
-        const {userName, password} = this.state
-        console.log(userName, password)
+        const {emailAdd, password} = this.state
+        console.log(emailAdd, password)
 
-        if (!this.state.userName || !this.state.password) {
-            alert("Please enter username & password");
+        if (!this.state.emailAdd || !this.state.password) {
+            alert("Please enter an Email Address & Password");
         }
         else {
             axios.post("api/users", {
-                userName: this.state.userName,
+                userName: this.state.emailAdd,
                 password: this.state.password
             }).then(function (response) {
                 console.log(response);
 
                 welcome();
 
+                //Need to store users in the users database, resulting CHILD data has to match user's profile
+                //AXIOS GET HERE
+                //axios.get("api/users/${this.userName")
+
                 this.setState({
-                    userName: "",
+                    emailAdd: "",
                     password: ""
                 })
             })
@@ -74,15 +78,15 @@ class Login extends Component {
         return(
         <div className="container-login">
         <p>
-            Please enter your username and password.
+            Please enter your email address and password.
         </p>
         <form className="form">
-          <input id="username"
-            value={this.state.userName}
-            name="userName"
+          <input id="emailAdd"
+            value={this.state.emailAdd}
+            name="emailAdd"
             onChange={this.handleInputChange}
             type="text"
-            placeholder="Username"
+            placeholder="Email Address"
             />
             <input id="password"
             value={this.state.password}

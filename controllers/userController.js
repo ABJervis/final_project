@@ -1,13 +1,13 @@
 // Controller for our users
 // ============================
-var db = require("../models");
+var db = require("../models/user");
 
 // Defining methods for the userController
 module.exports = {
     findAll: function(req, res) {
       db.User
         .find(req.query)
-        .then(dbUsers => res.json(dbUser))
+        .then(dbUser => res.json(dbUser))
         .catch(err => res.status(422).json(err));
     },
     findById: function(req, res) {

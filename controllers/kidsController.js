@@ -1,13 +1,13 @@
-const db = require("../models");
+const db = require("../models/kids");
 
 // Defining methods for the kidsController
 module.exports = {
-  findAll: function(req, res) {
+  /*findAll: function(req, res) {
     db.Kids
       .find(req.query)
       .then(dbKids => res.json(dbKids))
       .catch(err => res.status(422).json(err));
-  },
+  },*/
   findById: function(req, res) {
     db.Kids
       .findById(req.params.id)

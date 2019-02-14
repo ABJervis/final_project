@@ -10,7 +10,7 @@ var Schema = mongoose.Schema;
 // Create the headlineSchema with our schema class
 var userSchema = new Schema({
   // userName, a string, must be entered
-  userName: {
+  emailAdd: {
     type: String,
     required: true,
     unique: { index: { unique: true } }

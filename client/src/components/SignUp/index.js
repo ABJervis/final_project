@@ -1,67 +1,117 @@
 import React, { Component } from "react";
-import { Formik } from "formik";
-import withStyles from "@material-ui/core/styles/withStyles";
-import { Form } from "./form";
-import Paper from "@material-ui/core/Paper";
-import * as Yup from "yup";
-import "./style.css";
+import axios from "axios";
+import Footer from "../Footer";
+import { withStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
+
 
 const styles = theme => ({
-  paper: {
-    marginTop: theme.spacing.unit * 8,
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    /*padding: `${theme.spacing.unit * 5}px ${theme.spacing.unit * 5}px ${theme
-      .spacing.unit * 5}px`*/
-  },
-  container: {
-    maxWidth: "200px"
-  }
-});
+    button: {
+      margin: theme.spacing.unit,
+    },
+    input: {
+      display: 'none',
+    },
+  });
 
-const validationSchema = Yup.object({
-  username: Yup.string("Enter a UserName")
-  .required("UserName is required"),
-  email: Yup.string("Enter your email")
-    .email("Enter a valid email")
-    .required("Email is required"),
-  password: Yup.string("")
-    .min(8, "Password must contain atleast 8 characters")
-    .required("Enter your password"),
-  confirmPassword: Yup.string("Enter your password")
-    .required("Confirm your password")
-    .oneOf([Yup.ref("password")], "Password does not match")
-});
 
-class InputForm extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
+class Login extends Component {
+//set the initial state
+    state = {
+        emailAdd: "",
+        password: ""
+    };
 
-  render() {
-    const classes = this.props;
-    const values = {username: "", email: "", confirmPassword: "", password: "" };
-    return (
-      <React.Fragment>          
-            <div className={classes.container}>
-              <Paper elevation={1} className={classes.paper}>
-                <h1>Sign Up </h1>
-                <Formik
-                  render={props => <Form{...props} />}
-                  initialValues={values}
-                  validationSchema={validationSchema}
-                  />
-              </Paper>
-            </div>
-      </React.Fragment>
+    handleInputChange = event => {
+    
+    let value = event.target.value;
+    const name = event.target.name;
+    
+    if (name === "password") {
+        value = value.substring(0, 10);
+    }
+    //update the state
+    this.setState({
+        [name]: value
+    });
+    };
 
-      
+    handleFormSubmit = event => {
+        event.preventDefault();
+
+    const welcome = () => {
+        alert("Welcome Back");
+        window.location = "/kids"
+    }    
+    
+        const {email, password} = this.state
+        console.log(email, password)
+
+        if (!this.state.emailAdd || !this.state.password) {
+            alert("Please enter email & password");
+        } else if (!this.state.emailAdd) {
+            alert ("Please enter your email address");
+        } else if (!this.state.password) {
+            alert ("Please enter your password");
+        }
+        else {
+            axios.post("api/users", {
+                emailAdd: this.state.emailAdd,
+                password: this.state.password
+            }).then(function (response) {
+                console.log(response);
+
+                welcome();
+
+                //AXIOS GET HERE
+                //axios.get("api/users/${this.userName")
+
+                this.setState({
+                    emailAdd: "",
+                    password: ""
+                })
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+        }
+    };
+
+    render() {
+        return(
+        <div className="container-signup">
+        <h4>
+            <strong>Sign Up</strong>
+        </h4>
+        <form className="form">
+          <input id="emailAdd"
+            value={this.state.emailAdd}
+            name="emailAdd"
+            onChange={this.handleInputChange}
+            type="text"
+            placeholder="Email Address"
+            />
+            <br />
+            <input id="password"
+            value={this.state.password}
+            name="password"
+            onChange={this.handleInputChange}  
+            type="password"
+            placeholder="Password"
+            />
+            <br />
+            <br />
+
+            <Button variant="contained" color="primary" onClick={this.handleFormSubmit}>
+            Submit
+            </Button>
+        </form>
+        
+        <Footer />
+
+        </div>
     );
-  }
+    };
 }
 
-export default withStyles(styles)(InputForm);
-
-
+export default withStyles(styles)(Login);

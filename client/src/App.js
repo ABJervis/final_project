@@ -4,6 +4,7 @@ import Nav from "./components/Nav";
 import Home from "./pages/Home";
 import Login from "./components/Login";
 import Kids from "./pages/Kids";
+import SignUp from "./components/SignUp/index";
 
 
 function App() {
@@ -16,7 +17,7 @@ function App() {
           <Route exact path="/home" component={Home} />
           <Route exact path="/login" component={Login} />         
           <Route exact path="/kids" component={Kids} />
-     
+          <Route exact path="/signup" component={SignUp} />
         </Switch>
       </div>
     </Router>
