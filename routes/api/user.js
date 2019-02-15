@@ -13,7 +13,7 @@ router
 router.route("/")
   .get(userController.findAll);
 
-router.route("/users")
+router.route("/user")
   .post(userController.create);
 
 

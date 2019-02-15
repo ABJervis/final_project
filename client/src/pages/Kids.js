@@ -7,6 +7,8 @@ import API from "../utils/API";
 import { Input, TextArea } from "../components/Form";
 import { Col, Row, Container } from "../components/Grid";
 import Footer from "../components/Footer";
+import SavedKids from "../pages/SavedKids";
+
 
 
 const styles = theme => ({
@@ -23,24 +25,24 @@ class Kids extends Component {
   state = {
     test: false,
     kids: [],
-    child_name: "",
+    name: "",
     age: "",
     height: "",
     weight: "",
     allergies: "",
   }
 
-  //componentDidMount() {
-    //this.loadKids();
- // }
+  componentDidMount() {
+   this.loadKids();
+    }
 
- // loadKids = () => {
-   // API.getKid()
-     // .then(res =>
-       // this.setState({ kids: res.data, child_name: "", age: "", height: "", weight: "", allergies: ""})
-     // )
-      //.catch(err => console.log(err));
-  //};
+  loadKids = () => {
+   API.getKids()
+     .then(res =>
+      this.setState({ kids: res.data, name: "", age: "", height: "", weight: "", allergies: ""})
+     )
+      .catch(err => console.log(err));
+  };
 
   handleInputChange = event => {
     const { name, value } = event.target;
@@ -51,9 +53,9 @@ class Kids extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-    if (this.state.kids && this.state.child_name) {
+    if (this.state.kids && this.state.name) {
       API.saveKid({
-        child_name: this.state.child_name,
+        name: this.state.name,
         age: this.state.age,
         height: this.state.height, 
         weight: this.state.weight,
@@ -72,9 +74,9 @@ class Kids extends Component {
             </div>
             <form>
               <Input
-                value={this.state.child_name}
+                value={this.state.name}
                 onChange={this.handleInputChange}
-                name="child_name"
+                name="name"
                 placeholder="Child's Name (required)"
               />
               <Input
@@ -106,9 +108,9 @@ class Kids extends Component {
             </form>
           </Col>
           <Col size="md-6 sm-12">
-            <div className="result-container">
-              <h1>Children</h1>
-            </div>
+           
+            <SavedKids />
+              
           </Col>
         </Row>
         <Footer />

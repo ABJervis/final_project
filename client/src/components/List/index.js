@@ -1,13 +1,16 @@
 import React from "react";
 import "./style.css";
+import Button from '@material-ui/core/Button';
 
 // This file exports both the List and ListItem components
 
 export function List({ children }) {
   return (
-    <div className="list-overflow-container">
-      <ul className="list-group">{children}</ul>
-    </div>
+    <div className="btn-container">
+      <Button variant="contained" color="dark">{children}
+    </Button>
+    </div>  
+    
   );
 }
 
