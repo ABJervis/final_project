@@ -25,8 +25,8 @@ class SavedKids extends Component {
       .catch(err => console.log(err));
   };
 
-  handleKidDelete = id => {
-    API.deleteKid(id).then(res => this.getKids());
+  handleSelectKid = id => {
+    API.getKid(id).then(res => this.getKids());
   };
 
   render() {
@@ -50,13 +50,15 @@ class SavedKids extends Component {
                     <Kid
                       key={kids._id}
                       name={kids.name}
+                      age={kids.age} 
+                      height={kids.height}
+                      weight={kids.weight}
+                      allergies={kids.allergies}
                     
                       Button={() => (
                         <button
-                          onClick={() => this.handleKidDelete(kids._id)}
-                          className="btn btn-danger ml-2"
+                          onClick={() => this.handleSelectKid(kids._id)}
                         >
-                          Delete
                         </button>
                       )}
                     />
