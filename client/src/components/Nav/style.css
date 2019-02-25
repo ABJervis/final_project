@@ -1,15 +1,8 @@
 * {box-sizing: border-box;}
 
 /* Style the navbar */
-.navbar Brand .navbar Form {
+.navbar-brand {
   overflow: hidden;
   font-family: 'Cabin', sans-serif;
   font-family: 'Caveat', cursive;
-  border-bottom-color: teal;
-
 }
-
-a { 
-    color: teal;
-}
-

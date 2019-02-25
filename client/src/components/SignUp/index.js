@@ -40,7 +40,6 @@ class Login extends Component {
         event.preventDefault();
 
     const welcome = () => {
-        alert("Welcome Back");
         window.location = "/kids"
     }    
     
@@ -92,12 +91,28 @@ class Login extends Component {
             placeholder="Email Address"
             />
             <br />
+            <input id="emailConfirmAdd"
+            value={this.state.emailConfirmAdd}
+            name="emailConfirmAdd"
+            onChange={this.handleInputChange}
+            type="text"
+            placeholder="Confirm Email Address"
+            />
+            <br />
             <input id="password"
             value={this.state.password}
             name="password"
             onChange={this.handleInputChange}  
             type="password"
             placeholder="Password"
+            />
+            <br />
+            <input id="confirmPassword"
+            value={this.state.confirmPassword}
+            name="confirmPassword"
+            onChange={this.handleInputChange}  
+            type="confirmPassword"
+            placeholder="Confirm Password"
             />
             <br />
             <br />
