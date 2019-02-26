@@ -24,6 +24,7 @@ function Home() {
           <div className="SignUpDiv">
             <SignUp />
           </div>
+       
 
           <Footer />
     </div>

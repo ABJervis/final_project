@@ -3,7 +3,8 @@ import axios from "axios";
 import Footer from "../Footer";
 import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
-
+import { Form, FormControl } from 'react-bootstrap';
+import "./style.css";
 
 const styles = theme => ({
     button: {
@@ -15,11 +16,13 @@ const styles = theme => ({
   });
 
 
-class Login extends Component {
+class SignUp extends Component {
 //set the initial state
     state = {
         emailAdd: "",
-        password: ""
+        emailConfirmAdd: "",
+        password: "",
+        confirmPassword: ""
     };
 
     handleInputChange = event => {
@@ -82,45 +85,49 @@ class Login extends Component {
         <h4>
             <strong>Sign Up</strong>
         </h4>
-        <form className="form">
-          <input id="emailAdd"
-            value={this.state.emailAdd}
-            name="emailAdd"
-            onChange={this.handleInputChange}
-            type="text"
-            placeholder="Email Address"
-            />
-            <br />
-            <input id="emailConfirmAdd"
-            value={this.state.emailConfirmAdd}
-            name="emailConfirmAdd"
-            onChange={this.handleInputChange}
-            type="text"
-            placeholder="Confirm Email Address"
-            />
-            <br />
-            <input id="password"
-            value={this.state.password}
-            name="password"
-            onChange={this.handleInputChange}  
-            type="password"
-            placeholder="Password"
-            />
-            <br />
-            <input id="confirmPassword"
-            value={this.state.confirmPassword}
-            name="confirmPassword"
-            onChange={this.handleInputChange}  
-            type="confirmPassword"
-            placeholder="Confirm Password"
-            />
-            <br />
-            <br />
-
-            <Button variant="contained" color="primary" onClick={this.handleFormSubmit}>
-            Submit
-            </Button>
-        </form>
+        <br />
+        <Form>
+            <FormControl 
+                input id="emailAdd"
+                value={this.state.emailAdd}
+                name="emailAdd"
+                onChange={this.handleInputChange}
+                type="text"
+                placeholder="Email Address"
+                />
+                <br />
+            <FormControl
+                input id="emailConfirmAdd"
+                value={this.state.emailConfirmAdd}
+                name="emailConfirmAdd"
+                onChange={this.handleInputChange}
+                type="text"
+                placeholder="Confirm Email Address"
+                />
+                <br />
+            <FormControl
+                input id="password"
+                value={this.state.password}
+                name="password"
+                onChange={this.handleInputChange}  
+                type="password"
+                placeholder="Password"
+                />
+                <br />
+            <FormControl
+                input id="confirmPassword"
+                value={this.state.confirmPassword}
+                name="confirmPassword"
+                onChange={this.handleInputChange}  
+                type="confirmPassword"
+                placeholder="Confirm Password"
+                />
+                <br />
+                
+                <Button variant="contained" color="primary" onClick={this.handleFormSubmit}>
+                Submit
+                </Button>
+        </Form>
         
         <Footer />
 
@@ -129,4 +136,5 @@ class Login extends Component {
     };
 }
 
-export default withStyles(styles)(Login);
+export default withStyles(styles)(SignUp);
+
