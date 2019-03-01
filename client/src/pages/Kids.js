@@ -122,3 +122,5 @@ class Kids extends Component {
 }
 
 export default withStyles(styles)(Kids);
+
+//this is the page for ADD KID

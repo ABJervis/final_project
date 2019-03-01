@@ -1,22 +1,12 @@
 import React, { Component } from "react";
 import axios from "axios";
 import Footer from "../Footer";
-import { withStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
-
-
-const styles = theme => ({
-    button: {
-      margin: theme.spacing.unit,
-    },
-    input: {
-      display: 'none',
-    },
-  });
+import { Form, FormControl, Button } from 'react-bootstrap';
 
 
 class Login extends Component {
 //set the initial state
+
     state = {
         emailAdd: "",
         password: ""
@@ -40,10 +30,8 @@ class Login extends Component {
         event.preventDefault();
 
     const welcome = () => {
-        alert("Welcome Back");
         window.location = "/kids"
     }    
-    
         const {emailAdd, password} = this.state
         console.log(emailAdd, password)
 
@@ -73,41 +61,35 @@ class Login extends Component {
             });
         }
     };
+    
 
     render() {
-        return(
+            return(
         <div className="container-login">
-        <p>
-            Please enter your email address and password.
-        </p>
-        <form className="form">
-          <input id="emailAdd"
+        <Form inline>
+        <FormControl 
+            input id="emailAdd"
             value={this.state.emailAdd}
             name="emailAdd"
             onChange={this.handleInputChange}
-            type="text"
-            placeholder="Email Address"
-            />
-            <input id="password"
+            type="text" 
+            placeholder="Email Address" 
+            className="mr-sm-2" />
+        <FormControl 
+            inout id="password"
             value={this.state.password}
             name="password"
-            onChange={this.handleInputChange}  
-            type="password"
-            placeholder="Password"
-            />
-
-            <Button variant="contained" color="primary" onClick={this.handleFormSubmit}>
-            Submit
-            </Button>
-        </form>
-        
+            onChange={this.handleInputChange}
+            type="password" 
+            placeholder="Password" 
+            className="mr-sm-2" />
+        <Button variant="outline-primary" onClick={this.handleFormSubmit}>Login</Button>
+        </Form> 
+      
         <Footer />
-
         </div>
     );
     };
 }
 
-export default withStyles(styles)(Login);
-
-
+export default Login;

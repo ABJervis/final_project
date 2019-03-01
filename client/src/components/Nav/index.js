@@ -1,5 +1,6 @@
 import React from "react";
-import { Navbar, Form, FormControl, Button } from 'react-bootstrap';
+import { Navbar } from 'react-bootstrap';
+import Login from "../Login";
 import "./style.css";
 
 function Nav() {
@@ -8,18 +9,12 @@ function Nav() {
     <Navbar.Brand href="./Home">Pediatric Appointment Tracker</Navbar.Brand>
     <Navbar.Toggle aria-controls="basic-navbar-nav" />
     <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
-      <Form inline>
-        <FormControl type="text" placeholder="Email Address" className="mr-sm-2" />
-        <FormControl type="text" placeholder="Password" className="mr-sm-2" />
-        <Button variant="outline-primary">Login</Button>
-      </Form>
+      <Login />
     </Navbar.Collapse>
   </Navbar>
   );
 }
 
-
-
-
 export default Nav;
+
 

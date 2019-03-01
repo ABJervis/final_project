@@ -43,6 +43,7 @@ class SignUp extends Component {
         event.preventDefault();
 
     const welcome = () => {
+        alert ("welcome!");
         window.location = "/kids"
     }    
     

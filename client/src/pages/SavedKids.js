@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import Kid from "../components/Kid";
 import Footer from "../components/Footer";
 import API from "../utils/API";
 import { Col, Row, Container } from "../components/Grid";
-import { List } from "../components/List";
+import { Link } from "react-router-dom";
+import { List, ListItem } from "../components/List";
 
 class SavedKids extends Component {
   state = {
@@ -34,11 +34,9 @@ class SavedKids extends Component {
       <Container>
         <Row>
           <Col size="md-12">
-         
               <h1 className="text-center">
                 <strong>Children</strong>
               </h1>
-             
           </Col>
         </Row>
         <Row>
@@ -47,21 +45,11 @@ class SavedKids extends Component {
               {this.state.kids.length ? (
                 <List>
                   {this.state.kids.map(kids => (
-                    <Kid
-                      key={kids._id}
-                      name={kids.name}
-                      age={kids.age} 
-                      height={kids.height}
-                      weight={kids.weight}
-                      allergies={kids.allergies}
-                    
-                      Button={() => (
-                        <button
-                          onClick={() => this.handleSelectKid(kids._id)}
-                        >
-                        </button>
-                      )}
-                    />
+                    <ListItem key={kids._id}>
+                      <Link to={"/kids/" + kids._id}>
+                        {kids.name}
+                      </Link>
+                    </ListItem>
                   ))}
                 </List>
               ) : (
