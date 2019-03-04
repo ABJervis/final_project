@@ -46,8 +46,8 @@ class SavedKids extends Component {
                 <List>
                   {this.state.kids.map(kids => (
                     <ListItem key={kids._id}>
-                      <Link to={"/kids/" + kids._id}>
-                        {kids.name}
+                      <Link to={"/kids/" + kids._id }>
+                        {kids.name + kids.age}
                       </Link>
                     </ListItem>
                   ))}

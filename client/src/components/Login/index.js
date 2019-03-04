@@ -68,19 +68,15 @@ class Login extends Component {
         <div className="container-login">
         <Form inline>
         <FormControl 
-            input id="emailAdd"
             value={this.state.emailAdd}
-            name="emailAdd"
             onChange={this.handleInputChange}
-            type="text" 
+            name="emailAdd"
             placeholder="Email Address" 
             className="mr-sm-2" />
         <FormControl 
-            inout id="password"
             value={this.state.password}
-            name="password"
             onChange={this.handleInputChange}
-            type="password" 
+            name="password"
             placeholder="Password" 
             className="mr-sm-2" />
         <Button variant="outline-primary" onClick={this.handleFormSubmit}>Login</Button>

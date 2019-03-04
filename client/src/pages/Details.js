@@ -3,24 +3,26 @@ import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 import API from "../utils/API";
 
+
 class Details extends Component {
   state = {
     kids: {}
   };
   // When this component mounts, grab the kid with the _id of this.props.match.params.id
   // e.g. http://localhost:3000/kids/5c609ef543ca65cc9b068580
+ 
   componentDidMount() {
     API.getKids(this.props.match.params.id)
-      .then(res => this.setState({ kids: res.data }))
-      .catch(err => console.log(err));
+    .then(res => this.setState({ kids: res.data }))
+    .catch(err => console.log(err));
   }
+
 
   render() {
     return (
       <Container fluid>
         <Row>
           <Col size="md-12">
-           
                 <h4>
                   Name: {this.state.kids.name} 
                   <br />
@@ -53,6 +55,8 @@ class Details extends Component {
           </Col>
         </Row>
       </Container>
+
+      
     );
   }
 }
