@@ -1,9 +1,8 @@
 import React, { Component } from "react";
-import Footer from "../components/Footer";
-import API from "../utils/API";
-import { Col, Row, Container } from "../components/Grid";
+import API from "../../utils/API";
+import { Col, Row, Container } from "../Grid";
 import { Link } from "react-router-dom";
-import { List, ListItem } from "../components/List";
+import { List, ListItem } from "../List";
 
 class SavedKids extends Component {
   state = {
@@ -47,7 +46,7 @@ class SavedKids extends Component {
                   {this.state.kids.map(kids => (
                     <ListItem key={kids._id}>
                       <Link to={"/kids/" + kids._id }>
-                        {kids.name + kids.age}
+                        {kids.name}
                       </Link>
                     </ListItem>
                   ))}
@@ -58,7 +57,6 @@ class SavedKids extends Component {
             </div>
           </Col>
         </Row>
-        <Footer />
       </Container>
     );
   }

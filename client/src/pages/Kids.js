@@ -1,36 +1,23 @@
 //need the form to return the last recorded stats for the kid, then provide form to add new details about the appt
 
 import React, { Component } from 'react';
-import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import API from "../utils/API";
 import { Input, TextArea } from "../components/Form";
 import { Col, Row, Container } from "../components/Grid";
 import Footer from "../components/Footer";
-import SavedKids from "../pages/SavedKids";
-
-
-
-const styles = theme => ({
-    button: {
-      margin: theme.spacing.unit,
-    },
-    input: {
-      display: 'none',
-    },
-  });
+import SavedKids from "../components/SavedKids";
 
 
 class Kids extends Component {
   state = {
-    test: false,
     kids: [],
     name: "",
     age: "",
     height: "",
-    weight: "",
-    allergies: "",
-  }
+    weight: "", 
+    allergies: ""
+  };
 
   componentDidMount() {
    this.loadKids();
@@ -61,10 +48,13 @@ class Kids extends Component {
         weight: this.state.weight,
         allergies: this.state.allergies
       })
+      .then(res => this.loadKids())
+      .catch(err => console.log(err))
     }
   };
 
   render() {
+
     return (
       <Container fluid>
         <Row>
@@ -84,6 +74,7 @@ class Kids extends Component {
                 onChange={this.handleInputChange}
                 name="age"
                 placeholder="Age (required)"
+                //this should actually be date of birth and should automatically update with the passing years
               />
               <Input
                 value={this.state.height}
@@ -121,6 +112,6 @@ class Kids extends Component {
   
 }
 
-export default withStyles(styles)(Kids);
+export default (Kids);
 
 //this is the page for ADD KID
