@@ -41,12 +41,11 @@ class Details extends Component {
           </Row>
           <Row>
             <Col size="md-10 md-offset-1">
-              <article>
-                <h3>Add New Appointment Details / View previous Appointment details</h3>
-                <p>
-                  {this.state.kids.allergies}
-                </p>
-              </article>
+              
+                <Link to="/NewAppt">Add New Appointment Details</Link>
+                <br />
+                <Link to="/PrevAppt">View Previous Appointment Details</Link>
+             
             </Col>
           </Row>
           <Row>

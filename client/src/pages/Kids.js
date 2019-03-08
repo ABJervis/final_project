@@ -3,7 +3,7 @@
 import React, { Component } from 'react';
 import Button from '@material-ui/core/Button';
 import API from "../utils/API";
-import { Input, TextArea } from "../components/Form";
+import { Input } from "../components/Form";
 import { Col, Row, Container } from "../components/Grid";
 import Footer from "../components/Footer";
 import SavedKids from "../components/SavedKids";
@@ -88,7 +88,7 @@ class Kids extends Component {
                 name="weight"
                 placeholder="Weight (optional)"
               />
-               <TextArea
+               <Input
                 value={this.state.allergies}
                 onChange={this.handleInputChange}
                 name="allergies"
