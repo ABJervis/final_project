@@ -31,6 +31,7 @@ class Login extends Component {
 
     const welcome = () => {
         window.location = "/kids"
+      
     }    
         const {emailAdd, password} = this.state
         console.log(emailAdd, password)
@@ -62,6 +63,8 @@ class Login extends Component {
         }
     };
     
+    
+
 
     render() {
             return(
@@ -80,8 +83,9 @@ class Login extends Component {
             placeholder="Password" 
             className="mr-sm-2" />
         <Button variant="outline-primary" onClick={this.handleFormSubmit}>Login</Button>
-        </Form> 
-      
+        </Form>
+
+
         <Footer />
         </div>
     );

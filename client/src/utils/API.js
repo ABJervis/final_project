@@ -12,5 +12,18 @@ export default {
   // Saves a kid to the database
   saveKid: function(kidData) {
     return axios.post("/api/kids/", kidData);
+  },
+
+  //gets all appointments
+  getAppointments: function() {
+    return axios.get("/api/kids/appointment");
+  },
+  //gets specific appointment based on id
+  getAppointment: function(id) {
+    return axios.get("/api/kids/appointment"+ id);
+  },
+  //saves appointment details to data base for future reference
+  saveAppointment: function(appointmentData) {
+    return axios.post("/api/kids/appointment", appointmentData);
   }
 };

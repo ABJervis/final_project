@@ -8,7 +8,7 @@ var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 
 // Create the headlineSchema with our schema class
-var userSchema = new Schema({
+var UserSchema = new Schema({
   // userName, a string, must be entered
   emailAdd: {
     type: String,
@@ -27,6 +27,6 @@ var userSchema = new Schema({
 });
 
 // Create the Users model using the usersSchema
-const User = mongoose.model("User", userSchema);
+const User = mongoose.model("User", UserSchema);
 
 module.exports = User;

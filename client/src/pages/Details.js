@@ -24,7 +24,7 @@ class Details extends Component {
           <Row>
             <Col size="md-12">
                   <h4>
-                    Name: {this.state.kids.name} 
+                  {this.state.kids.name} 
                     <br />
                   </h4>
                   <h5>

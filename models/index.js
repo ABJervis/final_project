@@ -2,5 +2,7 @@
 
 module.exports = {
   Kids: require("./kids"),
-  User: require("./user")
+  User: require("./user"),
+  Appointment: require("./appointment")
 };
+
