@@ -1,4 +1,4 @@
-//need the form to return the last recorded stats for the kid, then provide form to add new details about the appt
+//this is the page for ADD KID
 
 import React, { Component } from 'react';
 import Button from '@material-ui/core/Button';
@@ -13,9 +13,7 @@ class Kids extends Component {
   state = {
     kids: [],
     name: "",
-    age: "",
-    height: "",
-    weight: "", 
+    age: "", 
     allergies: ""
   };
 
@@ -26,7 +24,7 @@ class Kids extends Component {
   loadKids = () => {
    API.getKids()
      .then(res =>
-      this.setState({ kids: res.data, name: "", age: "", height: "", weight: "", allergies: ""})
+      this.setState({ kids: res.data, name: "", age: "", allergies: ""})
      )
       .catch(err => console.log(err));
   };
@@ -44,8 +42,6 @@ class Kids extends Component {
       API.saveKid({
         name: this.state.name,
         age: this.state.age,
-        height: this.state.height, 
-        weight: this.state.weight,
         allergies: this.state.allergies
       })
       .then(res => this.loadKids())
@@ -54,7 +50,6 @@ class Kids extends Component {
   };
 
   render() {
-
     return (
       <Container fluid>
         <Row>
@@ -77,18 +72,6 @@ class Kids extends Component {
                 //this should actually be date of birth and should automatically update with the passing years
               />
               <Input
-                value={this.state.height}
-                onChange={this.handleInputChange}
-                name="height"
-                placeholder="Height (optional)"
-              />
-               <Input
-                value={this.state.weight}
-                onChange={this.handleInputChange}
-                name="weight"
-                placeholder="Weight (optional)"
-              />
-               <Input
                 value={this.state.allergies}
                 onChange={this.handleInputChange}
                 name="allergies"
@@ -114,4 +97,3 @@ class Kids extends Component {
 
 export default (Kids);
 
-//this is the page for ADD KID

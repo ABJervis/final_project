@@ -1,18 +1,14 @@
-.description-div{
+.description-div, .addappointment {
     width: 45%;
     float: left;
     margin-top: 60px;
     margin-left: 60px;
     font-family: 'Cabin', sans-serif;
-    font-family: 'Caveat', cursive;
-    
-
-    
+    font-family: 'Caveat', cursive;    
 }
 
 
-
-h1 {
+h1, h3{
     text-shadow: 2px 2px 5px teal;
       
 }
@@ -22,14 +18,22 @@ body {
     background-color: whitesmoke;
 }
 
-
-
 .SignUpDiv {
     display: inline-block;
     width: 40%;
     margin-left: 60px;
     margin-top: 75px;
-    font-family: 'Cabin', sans-serif;
+    font-family: 'Cabin', sans-serif; 
     font-family: 'Caveat', cursive;
 }
 
+.savedappt {
+    display: inline-block;
+    width: 40%;
+    margin-left: 60px;
+    margin-top: 60px;
+    font-family: 'Cabin', sans-serif; 
+    font-family: 'Caveat', cursive;
+
+
+}

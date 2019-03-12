@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 import API from "../utils/API";
+import SavedAppt from "../components/SavedAppt";
 
 class Details extends Component {
     state = {
@@ -17,7 +18,6 @@ class Details extends Component {
       .catch(err => console.log(err));
     }
   
-  
     render() {
       return (
         <Container fluid>
@@ -30,22 +30,9 @@ class Details extends Component {
                   <h5>
                     Age: {this.state.kids.age}
                     <br />
-                    Height: {this.state.kids.height}
-                    <br />
-                    Weight: {this.state.kids.weight}
-                    <br />
                     Allergies: {this.state.kids.allergies}
                   </h5>
           
-            </Col>
-          </Row>
-          <Row>
-            <Col size="md-10 md-offset-1">
-              
-                <Link to="/NewAppt">Add New Appointment Details</Link>
-                <br />
-                <Link to="/PrevAppt">View Previous Appointment Details</Link>
-             
             </Col>
           </Row>
           <Row>
@@ -53,7 +40,11 @@ class Details extends Component {
               <Link to="/kids">← Back to Kids</Link>
             </Col>
           </Row>
+        
+        <SavedAppt />
         </Container>
+        
+
   
         
       );
@@ -61,3 +52,14 @@ class Details extends Component {
   }
   
   export default Details;
+
+
+/*  <Row>
+  <Col size="md-10 md-offset-1">
+    
+      <Link to="/NewAppt">Add New Appointment Details</Link>
+      <br />
+      <Link to="/PrevAppt">View Previous Appointment Details</Link>
+   
+  </Col>
+</Row>*/

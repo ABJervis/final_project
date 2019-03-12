@@ -1,13 +1,23 @@
 import React, { Component } from "react";
-import API from "../../utils/API";
-import { Col, Row, Container } from "../Grid";
-import { Link } from "react-router-dom";
-import { List, ListItem } from "../List";
+import Button from '@material-ui/core/Button';
+import API from "../utils/API";
+import { Col, Row, Container } from "../components/Grid";
 import { Input } from "../components/Form";
+import { Link } from "react-router-dom";
+import SavedAppt from "../components/SavedAppt";
+
 
 class NewAppt extends Component {
   state = {
-    appointment: []
+    appointment: [],
+    date: "",
+    visit: "",
+    height: "",
+    weight: "",
+    diagnosis: "",
+    medication: "",
+    notes: ""
+
   };
 
  //get all appointments
@@ -18,9 +28,7 @@ class NewAppt extends Component {
   loadAppointments = () => {
     API.getAppointments()
       .then(res =>
-        this.setState({
-          appointment: res.data
-        })
+        this.setState({ appointment: res.data, date: "", visit: "", height: "", weight: "", diagnosis: "", medication: "", notes: ""})
       )
       .catch(err => console.log(err));
   };
@@ -34,11 +42,12 @@ class NewAppt extends Component {
 
     handleFormSubmit = event => {
         event.preventDefault();
-        if (this.state.appointment && this.state.name) {
+        if (this.state.appointment && this.state.visit) {
             API.saveAppointment({
+                date: this.state.date,
+                visit: this.state.visit,  
                 height: this.state.height,
                 weight: this.state.weight,
-                visit: this.state.visit,
                 diagnosis: this.state.diagnosis,
                 medication: this.state.medication,
                 notes: this.state.notes
@@ -50,36 +59,75 @@ class NewAppt extends Component {
 
   render() {
     return (
-      <Container>
+      <Container fluid>
+        <div className="addappointment">
         <Row>
           <Col size="md-12">
-              <h1 className="text-center">
-                <strong>Children</strong>
-              </h1>
+              <h3 className="text-center">
+                New Appointment 
+              </h3>
           </Col>
         </Row>
-        <Row>
-          <Col size="md-12">
-            <div className="container-savedkids">
-              {this.state.kids.length ? (
-                <List>
-                  {this.state.kids.map(kids => (
-                    <ListItem key={kids._id}>
-                      <Link to={"/kids/" + kids._id }>
-                        {kids.name}
-                      </Link>
-                    </ListItem>
-                  ))}
-                </List>
-              ) : (
-                <h2 className="text-center">No Saved Kids</h2>
-              )}
-            </div>
-          </Col>
-        </Row>
+        <form>
+          <Input
+              value={this.state.visit}
+              onChange={this.handleInputChange}
+              name="visit"
+              type="String"
+              placeholder="Type of Visit"
+              />
+          <Input
+              value={this.state.height}
+              onChange={this.handleInputChange}
+              name="height"
+              type="number"
+              placeholder="height (inches)"
+            />
+            <Input
+              value={this.state.weight}
+              onChange={this.handleInputChange}
+              name="weight"
+              type="number"
+              placeholder="weight (pounds)"
+            />
+            <Input
+              value={this.state.diagnosis}
+              onChange={this.handleInputChange}
+              name="diagnosis"
+              type="String"
+              placeholder="diagnosis"
+              />
+            <Input
+              value={this.state.medication}
+              onChange={this.handleInputChange}
+              name="medication"
+              type="String"
+              placeholder="medication"
+              />
+            <Input
+              value={this.state.notes}
+              onChange={this.handleInputChange}
+              name="notes"
+              type="String"
+              placeholder="notes"
+              />
+
+                <Button variant="contained" color="primary" onClick={this.handleFormSubmit}>
+                Add Appointment Details
+                </Button>
+            </form>
+            <Row>
+            <Col size="md-2">
+              <Link to="/kids">← Back to Kids</Link>
+            </Col>
+          </Row>
+
+
+      </div>
+      <SavedAppt />
       </Container>
     );
   }
 }
 
-export default Appt;
+export default NewAppt;
