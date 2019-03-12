@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 import API from "../utils/API";
 import SavedAppt from "../components/SavedAppt";
+import NewAppt from "../components/NewAppt";
 
 class Details extends Component {
     state = {
@@ -21,32 +22,24 @@ class Details extends Component {
     render() {
       return (
         <Container fluid>
+        <div className="kidname">
           <Row>
             <Col size="md-12">
-                  <h4>
-                  {this.state.kids.name} 
-                    <br />
-                  </h4>
-                  <h5>
-                    Age: {this.state.kids.age}
-                    <br />
-                    Allergies: {this.state.kids.allergies}
-                  </h5>
-          
+              <h4>
+              {this.state.kids.name} </h4>
+              Allergies: {this.state.kids.allergies}    
             </Col>
           </Row>
           <Row>
-            <Col size="md-2">
+            <Col size="md-12">
               <Link to="/kids">← Back to Kids</Link>
             </Col>
           </Row>
-        
+        </div>
+        <NewAppt />
         <SavedAppt />
+        
         </Container>
-        
-
-  
-        
       );
     }
   }

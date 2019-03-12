@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import Button from '@material-ui/core/Button';
-import API from "../utils/API";
-import { Col, Row, Container } from "../components/Grid";
-import { Input } from "../components/Form";
-import { Link } from "react-router-dom";
-import SavedAppt from "../components/SavedAppt";
+import API from "../../utils/API";
+import { Col, Row, Container } from "../Grid";
+import { Input } from "../Form";
+
+
 
 
 class NewAppt extends Component {
@@ -116,15 +116,11 @@ class NewAppt extends Component {
                 Add Appointment Details
                 </Button>
             </form>
-            <Row>
-            <Col size="md-2">
-              <Link to="/kids">← Back to Kids</Link>
-            </Col>
-          </Row>
+          
 
 
       </div>
-      <SavedAppt />
+
       </Container>
     );
   }
