@@ -24,7 +24,8 @@ class Kids extends Component {
   loadKids = () => {
    API.getKids()
      .then(res =>
-      this.setState({ kids: res.data, name: "", age: "", allergies: ""})
+      this.setState({ 
+      kids: res.data, name: "", age: "", allergies: ""})
      )
       .catch(err => console.log(err));
   };

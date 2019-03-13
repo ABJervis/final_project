@@ -20,10 +20,10 @@ export default {
   },
   //gets specific appointment based on id
   getAppointment: function(id) {
-    return axios.get("/api/appointment"+ id);
+    return axios.get("/api/appointment/"+ id);
   },
-  //saves appointment details to data base for future reference
+  //saves appointment details to database for future reference
   saveAppointment: function(appointmentData) {
-    return axios.post("/api/appointment", appointmentData);
+    return axios.post("/api/appointment/", appointmentData);
   }
 };

@@ -33,6 +33,7 @@ class Details extends Component {
           <Row>
             <Col size="md-12">
               <Link to="/kids">← Back to Kids</Link>
+              
             </Col>
           </Row>
         </div>
@@ -46,13 +47,3 @@ class Details extends Component {
   
   export default Details;
 
-
-/*  <Row>
-  <Col size="md-10 md-offset-1">
-    
-      <Link to="/NewAppt">Add New Appointment Details</Link>
-      <br />
-      <Link to="/PrevAppt">View Previous Appointment Details</Link>
-   
-  </Col>
-</Row>*/

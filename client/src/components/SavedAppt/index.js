@@ -6,7 +6,7 @@ import { List, ListItem } from "../List";
 
 class SavedAppt extends Component {
   state = {
-    appointment: []
+    appointment: [],
   };
 
   componentDidMount() {
@@ -24,7 +24,7 @@ class SavedAppt extends Component {
   };
 
   handleSelectAppt = id => {
-    API.getAppointment(id).then(res => this.getSavedAppts());
+    API.getAppointment(id).then(res => this.getAppointments());
   };
 
   render() {
