@@ -12,7 +12,7 @@ const appointmentSchema = new Schema({
   diagnosis: { type: String, required: false },
   medication: { type: String, required: false },
   notes: { type: String, required: false },
-  date: { type: Date, default: Date.now },
+  date: { type: String, required: true},
   //'appointment' is an array that stores ObjectIDs
   //the ref property links these ObjectIds to the Kids Model
   //this allows us to tag the appointments added that belong to a specific kid

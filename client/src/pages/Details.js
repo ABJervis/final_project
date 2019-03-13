@@ -22,12 +22,11 @@ class Details extends Component {
     render() {
       return (
         <Container fluid>
-        <div className="kidname">
+        <span className="kidname">
           <Row>
             <Col size="md-12">
               <h4>
-              {this.state.kids.name} </h4>
-              Allergies: {this.state.kids.allergies}    
+              {this.state.kids.name} </h4> Allergies: {this.state.kids.allergies}    
             </Col>
           </Row>
           <Row>
@@ -36,7 +35,7 @@ class Details extends Component {
               
             </Col>
           </Row>
-        </div>
+        </span>
         <NewAppt />
         <SavedAppt />
         

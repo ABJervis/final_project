@@ -32,23 +32,23 @@ class SavedAppt extends Component {
       <Container fluid>
       <div className="savedappt">
         <Row>
-          <Col size="md-12">
-              <h3 className="text-center">
+          <Col size="md-6">
+              <h4 className="text-center">
                 Previous Appointments
-              </h3>
+              </h4>
          
               {this.state.appointment.length ? (
                 <List>
                   {this.state.appointment.map(appointment => (
                     <ListItem key={appointment._id}>
                       <Link to={"/appointment/" + appointment._id }>
-                        {appointment.visit}
+                        {appointment.visit} 
                       </Link>
                     </ListItem>
                   ))}
                 </List>
               ) : (
-                <h2 className="text-center">No Saved Appointments</h2>
+                <h5 className="text-center">No Saved Appointments</h5>
               )}
           </Col>
         </Row>
